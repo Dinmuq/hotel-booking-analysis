@@ -116,19 +116,24 @@ Hotel_Booking_Project/
 ├── Python/
 │   └── hotel_booking_analysis.ipynb
 │
-├── PowerBI/
-│   └── hotel_booking_dashboard.pbix
+├── Power BI/
+│   └── Hotel_Booking_Analysis.pbix
 │
 ├── queries/
-│   ├── basic_queries/
-│   ├── case/
-│   ├── cte/
-│   ├── date_functions/
-│   ├── group_by/
-│   ├── join/
-│   └── window_functions/
+│   ├── 01_create_table.sql
+│   ├── 02_check_import.sql
+│   ├── 03_create_booking_channels.sql
+│   ├── 04_create_join_test.sql
+│   ├── basic_queries.sql
+│   ├── case.sql
+│   ├── cte.sql
+│   ├── date_functions.sql
+│   ├── group_by_having.sql
+│   ├── join_analysis.sql
+│   └── window_functions.sql
 │
 ├── screenshots/
+│   └── hotel_booking_dashboard.png
 │
 └── README.md
 ```
