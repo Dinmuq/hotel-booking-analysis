@@ -43,4 +43,5 @@ SELECT
     CheckIn,
     CheckIn - BookingDate AS LeadTime
 FROM hotel_bookings
-WHERE CheckIn <= BookingDate + INTERVAL '7 days';
+WHERE CheckIn >= BookingDate
+  AND CheckIn <= BookingDate + INTERVAL '7 days';
