@@ -6,8 +6,6 @@ FROM hotel_bookings
 GROUP BY RoomType
 ORDER BY TotalBookings DESC;
 
--------------------------------------------------------------------
-
 -- 2. Какой канал бронирования используется чаще всего?
 
 SELECT Channel,
@@ -16,26 +14,18 @@ FROM hotel_bookings
 GROUP BY Channel
 ORDER  BY TotalBookings DESC;
 
---------------------------------------------------------------------
-
 -- 3. Какая максимальная стоимость бронирования?
 SELECT MAX(TotalAmount) AS MaxBookingAmount
 FROM hotel_bookings;
-
---------------------------------------------------------------------
 
 -- 4. Какая минимальная стоимость бронирования?
 SELECT MIN(TotalAmount) AS MinBookingAmount
 FROM hotel_bookings;
 
---------------------------------------------------------------------
-
 -- 5. Какая средняя продолжительность проживания?
 
 SELECT AVG(Nights) AS AverageNights
 FROM hotel_bookings;
-
---------------------------------------------------------------------
 
 -- 6. Сколько завершённых бронирований было создано в каждом месяце?
 
@@ -46,8 +36,6 @@ WHERE Status = 'Checked-out'
 GROUP BY EXTRACT(MONTH FROM BookingDate)
 ORDER BY BookingMonth DESC;
 
---------------------------------------------------------------------
-
 -- 7. Сколько бронирований было отменено и какой это процент от всех бронирований?
 
 SELECT
@@ -55,8 +43,6 @@ SELECT
     COUNT(*) AS TotalBookings,
     COUNT(*) FILTER (WHERE Status = 'Cancelled') * 100.0 / COUNT(*) AS CancellationRate
 FROM hotel_bookings;
-
---------------------------------------------------------------------
 
 -- 8. Страны, где было больше 300 бронирований.
 
@@ -67,8 +53,6 @@ FROM hotel_bookings
 GROUP BY Country
 HAVING COUNT(*) > 300;
 
---------------------------------------------------------------------
-
 -- 9. Какие типы номеров имеют наибольшую общую сумму бронирований?
 
 SELECT 
@@ -77,8 +61,6 @@ SELECT
 FROM hotel_bookings
 GROUP BY RoomType
 ORDER BY TotalBookingAmount DESC;
-
---------------------------------------------------------------------
 
 -- 10. Какие каналы бронирования имеют общую сумму бронирований более 30 000?
 
@@ -90,8 +72,6 @@ GROUP BY Channel
 HAVING SUM(TotalAmount) > 30000
 ORDER BY TotalBookingAmount DESC;
 
---------------------------------------------------------------------
-
 -- 11. Какие типы номеров имеют среднюю стоимость за ночь больше 100?
 
 SELECT RoomType,
@@ -99,8 +79,6 @@ SELECT RoomType,
 FROM hotel_bookings
 GROUP BY RoomType
 HAVING AVG(PricePerNight) > 100;
-
------------------------------------------------------------------------
 
 -- 12. Со сколькими уникальными странами мы работали через каждый канал бронирования?
 
